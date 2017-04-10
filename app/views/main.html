@@ -1,0 +1,15 @@
+<div class="container mainContainer">
+  <div class="row">
+    <h1>Choix du mode de jeu</h1>
+  </div>
+  <div class="row">
+    <button class="btn btn-default btnMode" ng-click="main.modes = 'IA'">IA vs IA</button>
+    <button class="btn btn-default btnMode" ng-click="main.modes = 'HUMAN'; main.sendHuman()">IA vs HUMAN</button>
+  </div>
+  <div class="row" ng-show="main.modes == 'IA'">
+    liste des serveurs disponibles
+  </div>
+  <div class="row" ng-show="main.modes == 'IA'">
+    <button class="btn btn-default btnMode" ng-click="main.selectServer(serv)">Valider</button>
+  </div>
+</div>
