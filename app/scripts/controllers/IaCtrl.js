@@ -39,6 +39,7 @@
 
             if (elem.getContext) {
                 var ctx = elem.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 var x = 0;
                 var y = 0;
                 var j = 0;
