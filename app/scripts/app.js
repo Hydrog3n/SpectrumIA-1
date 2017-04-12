@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'LocalStorageModule'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -42,4 +43,12 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+    })
+    .constant('_', window._)
+    .run(function ($rootScope) {
+        $rootScope._ = window._;
+    })
+    .config(function(ConfigProvider){
+        ConfigProvider.useConfig('http://37.187.239.177:9000');
+    });
+

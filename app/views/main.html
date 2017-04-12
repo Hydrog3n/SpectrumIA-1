@@ -3,13 +3,18 @@
     <h1>Choix du mode de jeu</h1>
   </div>
   <div class="row">
-    <button class="btn btn-default btnMode" ng-click="main.modes = 'IA'">IA vs IA</button>
+    <button class="btn btn-default btnMode" ng-click="main.modes = 'IA'; main.modes = 'IA'">IA vs IA</button>
     <button class="btn btn-default btnMode" ng-click="main.modes = 'HUMAN'; main.sendHuman()">IA vs HUMAN</button>
   </div>
-  <div class="row" ng-show="main.modes == 'IA'">
-    liste des serveurs disponibles
-  </div>
-  <div class="row" ng-show="main.modes == 'IA'">
-    <button class="btn btn-default btnMode" ng-click="main.selectServer(serv)">Valider</button>
+
+  <div class="row" style="margin-top: 2em;" ng-show="main.modes == 'IA'">
+    <form name="selectGame">
+      <label for="repeatSelect"> Choisir partie: </label>
+      <select name="repeatSelect" id="repeatSelect" ng-model="main.partieSelected">
+        <option ng-repeat="partie in main.nomsParties" value="{{partie.name}}">{{partie.name}}</option>
+      </select>
+    </form>
+
+    <button class="btn btn-default btnMode" ng-click="main.sendIA()">Valider</button>
   </div>
 </div>

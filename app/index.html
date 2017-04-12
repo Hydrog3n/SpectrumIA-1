@@ -27,20 +27,15 @@
           <div class="navbar-header">
 
             <H1>PENTE GAME</H1>
+            <p>Spectrum IA from Aurore Troubat, Loic Vaillé, Paul Cartieri and Dimitri Bevis.</p>
           </div>
 
         </div>
       </div>
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p>Spectrum IA from Aurore Troubat, Loic Vaillé, Paul Cartieri and Dimitri Bevis.</p>
-      </div>
+    <div ng-view="">
+      <toaster-container></toaster-container>
     </div>
 
 
@@ -66,11 +61,15 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/config/Config.js"></script>
+        <script src="scripts/services/GameService.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/IaCtrl.js"></script>
         <script src="scripts/controllers/HumanCtrl.js"></script>

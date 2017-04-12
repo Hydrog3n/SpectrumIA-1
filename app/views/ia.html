@@ -1,3 +1,39 @@
-<h1>{{ia.title}}</h1>
+<div class="container">
+    <div class="col-sm-3">
+        <h2>{{ ia.partie.infos.player[0].name }}</h2>
+        <p>Boule blanche</p>
+        <p ng-show="main.player1.turn == 1">A toi de jouer !</p>
+        <p>Nombre de tenailles: {{ main.tenailles }}</p>
+    </div>
+    <div class="col-sm-6">
 
-<a ng-href="/" class="btn btn-default">Retour</a>
+        <div class="row">
+            <span ng-show="main.waiting">
+                <p>Le joueur {{ main.joueurCourant }}réfléchi...</p>
+            </span>
+            <p>Temps écoulé tour: {{ ia.time.turn }}</p>
+            <p id="time-elapsed"></p>
+            <p ng-if="main.impossible">Coup impossible</p>
+            <p>Dernier coup joué: {{ main.lastCoup }} par le joueur {{ main.lastJoueur }}</p>
+            <p>{{ main.joueurCourant }} place son pion en {{ main.coupCourant }}</p>
+        </div>
+
+        <div class="row">
+            <canvas width="400" height="400" style="width: 100%;" id="canvas">
+            </canvas>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="row">
+            <h2>{{ ia.partie.infos.player[1].name }}</h2>
+            <p>Boule noire</p>
+            <p ng-show="main.player2.turn == 1">A toi de jouer !</p>
+            <p>Nombre de tenailles: {{ main.tenailles }}</p>
+        </div>
+        <div class="row" style="margin-top: 125%;">
+            <a ng-href="/" class="btn btn-default pull-right" style="margin-top: 0.5em;">Retour</a>
+        </div>
+    </div>
+</div>
+
+

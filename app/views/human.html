@@ -1,3 +1,18 @@
-<h1>{{ human.title }}</h1>
+<div class="container" ng-init="human.draw()">
+    <div class="col-sm-3">
 
-<a ng-href="/" class="btn btn-default">Retour</a>
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <canvas width="400" height="400" style="width: 100%;" id="canvas">
+            </canvas>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="row">
+            <a ng-href="/" class="btn btn-default pull-right" style="margin-top: 0.5em;">Retour</a>
+        </div>
+    </div>
+</div>
+
+
