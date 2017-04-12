@@ -1,8 +1,8 @@
 <div class="container">
     <div class="col-sm-3">
         <h2>{{ ia.partie.infos.player[0].name }}</h2>
-        <p>Boule blanche</p>
-        <p ng-show="main.player1.turn == 1">A toi de jouer !</p>
+        <p>Pions blancs</p>
+        <p ng-show="ia.playerturn == 1">A toi de jouer !</p>
         <p>Nombre de tenailles: {{ main.tenailles }}</p>
     </div>
     <div class="col-sm-6">
@@ -26,8 +26,8 @@
     <div class="col-sm-3">
         <div class="row">
             <h2>{{ ia.partie.infos.player[1].name }}</h2>
-            <p>Boule noire</p>
-            <p ng-show="main.player2.turn == 1">A toi de jouer !</p>
+            <p>Pions noirs</p>
+            <p ng-show="ia.playerturn === 2">A toi de jouer !</p>
             <p>Nombre de tenailles: {{ main.tenailles }}</p>
         </div>
         <div class="row" style="margin-top: 125%;">

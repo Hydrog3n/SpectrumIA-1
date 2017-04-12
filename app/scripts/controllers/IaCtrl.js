@@ -15,7 +15,7 @@
         vm.getInfos = function () {
             GameService.infosGameState.get(function (infos) {
                 vm.draw(infos.tableau);
-                console.log(infos)
+                vm.playerturn = infos.playerturn;
             });
         };
 
