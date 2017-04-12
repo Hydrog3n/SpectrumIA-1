@@ -23,7 +23,6 @@
             var partieChoisie = _.find(vm.nomsParties, {name: vm.partieSelected});
             localStorageService.set('PartieCourante', partieChoisie);
 
-            console.log(partieChoisie.infos.numtour)
             if(partieChoisie.infos.numtour == 0){
                 //StartGame
                 GameService.startGame.get(function () {

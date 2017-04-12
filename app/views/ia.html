@@ -1,39 +1,50 @@
 <div class="container">
     <div class="col-sm-3">
-        <h2>{{ ia.partie.infos.player[0].name }}</h2>
-        <p>Pions blancs</p>
-        <p ng-show="ia.playerturn == 1">A toi de jouer !</p>
-        <p>Nombre de tenailles: {{ main.tenailles }}</p>
-    </div>
-    <div class="col-sm-6">
-
-        <div class="row">
-            <span ng-show="main.waiting">
-                <p>Le joueur {{ main.joueurCourant }}réfléchi...</p>
-            </span>
-            <p>Temps écoulé tour: {{ ia.time.turn }}</p>
-            <p id="time-elapsed"></p>
-            <p ng-if="main.impossible">Coup impossible</p>
-            <p>Dernier coup joué: {{ main.lastCoup }} par le joueur {{ main.lastJoueur }}</p>
-            <p>{{ main.joueurCourant }} place son pion en {{ main.coupCourant }}</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Equipe {{ ia.player1.name }}</h3>
+                <h4 class="panel-title">Joueur {{ ia.player1.codeplayer }}</h4>
+                <h5 ng-show="ia.infos.playerturn == 1">Est en train de jouer</h5>
+            </div>
+            <div class="panel-body">
+                <p>Pions blancs</p>
+                <label>Nombre de tenailles: </label><p>{{ ia.player1.nbtenaille }}</p>
+            </div>
         </div>
+    </div>
+    <div class="col-sm-6" style="text-align: center;">
 
-        <div class="row">
-            <canvas width="400" height="400" style="width: 100%;" id="canvas">
-            </canvas>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <canvas width="275" height="280" style="width: 100%;" id="canvas">
+                </canvas>
+            </div>
+            <div class="panel-footer">
+                <label>Temps écoulé tour:</label>  <p>{{ ia.time.turn }}</p>
+                <label>Temps écoulé partie: </label><p>{{ ia.minutesGame }} minute(s), {{ ia.secondsGame }} second(s)</p>
+                <label ng-show="ia.infos.derniercoupx != null && ia.infos.derniercoupy != null">Dernier coup joué:</label>
+                <p ng-show="ia.infos.derniercoupx != null && ia.infos.derniercoupy != null"> X : {{ ia.infos.derniercoupx }} - Y : {{ ia.infos.derniercoupy }}</p>
+            </div>
         </div>
     </div>
     <div class="col-sm-3">
-        <div class="row">
-            <h2>{{ ia.partie.infos.player[1].name }}</h2>
-            <p>Pions noirs</p>
-            <p ng-show="ia.playerturn === 2">A toi de jouer !</p>
-            <p>Nombre de tenailles: {{ main.tenailles }}</p>
-        </div>
-        <div class="row" style="margin-top: 125%;">
-            <a ng-href="/" class="btn btn-default pull-right" style="margin-top: 0.5em;">Retour</a>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Equipe {{ ia.player2.name }}</h3>
+                <h4 class="panel-title">Joueur {{ ia.player2.codeplayer }}</h4>
+                <h5 ng-show="ia.infos.playerturn == 2" style="color: red;">Est en train de jouer</h5>
+            </div>
+            <div class="panel-body">
+                <p>Pions noirs</p>
+                <label>Nombre de tenailles: </label><p>{{ ia.player2.nbtenaille }}</p>
+            </div>
         </div>
     </div>
 </div>
 
+
+<div class="row" style="margin-top: 125%;">
+    <a ng-href="/" class="btn btn-default pull-right" style="margin-top: 0.5em;">Retour</a>
+</div>
 

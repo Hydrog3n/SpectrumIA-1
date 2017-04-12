@@ -49,6 +49,6 @@ angular
         $rootScope._ = window._;
     })
     .config(function(ConfigProvider){
-        ConfigProvider.useConfig('http://37.187.239.177:9000');
+        ConfigProvider.useConfig('http://spectrum.loicvaille.ovh');
     });
 

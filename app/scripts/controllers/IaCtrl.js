@@ -11,11 +11,17 @@
     function IaCtrl (GameService, localStorageService) {
         const vm = this;
 
+        vm.player1 = {};
+        vm.player2 = {};
+
         //Récupère les infos de la partie
         vm.getInfos = function () {
             GameService.infosGameState.get(function (infos) {
                 vm.draw(infos.tableau);
-                vm.playerturn = infos.playerturn;
+                console.log(infos)
+                vm.infos = infos;
+                vm.player1 = _.find(infos.player, {numerojoueur: 1});
+                vm.player2 = _.find(infos.player, {numerojoueur: 2});
             });
         };
 
@@ -81,7 +87,8 @@
                diff = diff-(m*60);
                var s = diff;
 
-               document.getElementById("time-elapsed").innerHTML = "Temps écoulé depuis le début de la partie: "+m+" minute(s), "+s+" second(s)";
+               vm.minutesGame = m;
+               vm.secondsGame = s;
            }
 
            setInterval(updateClock, 1000);
