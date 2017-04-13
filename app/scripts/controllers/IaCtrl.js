@@ -35,6 +35,7 @@
         //Construction du plateau de jeu
         vm.draw = function (tableau) {
 
+            vm.tableau = tableau;
             var elem = document.getElementById("canvas");
 
             if (elem.getContext) {
@@ -44,20 +45,20 @@
                 var y = 0;
                 var j = 0;
 
-                for(var i = 0; i < tableau.length; i++){
-                    for (var position in tableau[i]) {
+                for(var i = 0; i < vm.tableau.length; i++){
+                    for (var position in vm.tableau[i]) {
                         if(j == 19){
                             y+= 15;
                             j = 0;
                             x = 0;
                         }
-                        if(tableau[i][position] == 0){      //pas de boules
+                        if(vm.tableau[i][position] == 0){      //pas de boules
                             ctx.fillRect(x, y, 5, 5);
-                        }else if(tableau[i][position] == 1){    //boules blanches joueur 1
+                        }else if(vm.tableau[i][position] == 1){    //boules blanches joueur 1
                             ctx.beginPath();
                             ctx.arc(x+3,y+3,5,0,2*Math.PI);
                             ctx.stroke();
-                        }else if(tableau[i][position] == 2){    //boules noires joueur 2
+                        }else if(vm.tableau[i][position] == 2){    //boules noires joueur 2
                             ctx.beginPath();
                             ctx.arc(x+3,y+3,5,0,2*Math.PI);
                             ctx.fill();
@@ -69,8 +70,23 @@
                 }
             }
         };
+        $('#canvas').click(function(e) {
+            var x = e.offsetX,
+                y = e.offsetY;
 
-       var counterGame = function (partie) {
+            console.log(x)
+            console.log(y)
+            /*for(var i=0;i<vm.tableau.length;i++) { // check whether:
+                if(x > vm.tableau[i][5]            // mouse x between x and x + width
+                    && x < vm.tableau[i][5] + vm.tableau[i][5]
+                    && y > vm.tableau[i][5]            // mouse y between y and y + height
+                    && y < vm.tableau[i][5] + vm.tableau[i][5]) {
+                    alert('Rectangle ' + i + ' clicked');
+                }
+            }*/
+        });
+
+       var counterGame = function () {
            var startDateTime = new Date(vm.partie.infos.createdAt);
            var startStamp = startDateTime.getTime();
            var newDate = new Date();

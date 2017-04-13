@@ -8,7 +8,7 @@
 (function () {
     'use strict';
 
-    function MainCtrl ($location, GameService, localStorageService) {
+    function MainCtrl ($location, GameService, localStorageService, $timeout) {
         const vm = this;
 
         vm.partiesDispo = [];
@@ -18,16 +18,31 @@
         },{
             name: 'HUMAN'
         }];
+        vm.startError = false;
 
         vm.sendIA = function () {
+            localStorageService.clearAll();
             var partieChoisie = _.find(vm.nomsParties, {name: vm.partieSelected});
+            console.log(partieChoisie)
             localStorageService.set('PartieCourante', partieChoisie);
 
             if(partieChoisie.infos.numtour == 0){
-                //StartGame
-                GameService.startGame.get(function () {
-                    $location.path('/ia');
-                });
+                console.log('Lancement start')
+
+                $timeout(function () {
+                    //StartGame
+                    GameService.startGame.get(function (resp) {
+                        if(resp.msg == "game started"){
+                            $location.path('/ia');
+                        }
+                    }, function () {
+                        vm.startError = true;
+                        $timeout(function () {
+                            $location.path('/ia');
+                            vm.startError = false;
+                        }, 2000);
+                    });
+                },2000);
             }else{
                 $location.path('/ia');
             }
