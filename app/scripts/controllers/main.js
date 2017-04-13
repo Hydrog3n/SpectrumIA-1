@@ -23,12 +23,9 @@
         vm.sendIA = function () {
             localStorageService.clearAll();
             var partieChoisie = _.find(vm.nomsParties, {name: vm.partieSelected});
-            console.log(partieChoisie)
             localStorageService.set('PartieCourante', partieChoisie);
 
             if(partieChoisie.infos.numtour == 0){
-                console.log('Lancement start')
-
                 $timeout(function () {
                     //StartGame
                     GameService.startGame.get(function (resp) {
@@ -49,7 +46,7 @@
         };
 
         vm.sendHuman = function () {
-            $location.path('/human');
+            $location.path('/newplayer');
         };
 
         vm.constructSelectionGames = function (parties) {

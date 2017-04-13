@@ -18,7 +18,6 @@
         vm.getInfos = function () {
             GameService.infosGameState.get(function (infos) {
                 vm.draw(infos.tableau);
-                console.log(infos)
                 vm.infos = infos;
                 vm.player1 = _.find(infos.player, {numerojoueur: 1});
                 vm.player2 = _.find(infos.player, {numerojoueur: 2});
@@ -87,7 +86,7 @@
         });
 
        var counterGame = function () {
-           var startDateTime = new Date(vm.partie.infos.createdAt);
+           var startDateTime = new Date(vm.partie.infos.startat);
            var startStamp = startDateTime.getTime();
            var newDate = new Date();
            var newStamp = newDate.getTime();

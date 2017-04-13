@@ -7,8 +7,12 @@
         var partieCourante = {
             infos: ''
         };
+        var newPlayer = '';
         if(localStorageService.get('PartieCourante')){
             partieCourante = localStorageService.get('PartieCourante');
+        }
+        if(localStorageService.get('NewPlayerInfos')){
+            newPlayer = localStorageService.get('NewPlayerInfos');
         }
 
         //Récupération des informations de la partie en cours
@@ -33,10 +37,18 @@
             }
         });
 
+        //Création d'un joueur humain
+        var createNewPlayer = $resource(apiPath + '/connect/' + newPlayer.pseudo, {}, {
+            get: {
+                method: "GET"
+            }
+        });
+
         return {
             infosGameState: infosGameState,
             games: games,
-            startGame: startGame
+            startGame: startGame,
+            createNewPlayer: createNewPlayer
         };
     }
     angular.module('spectrumIaApp').factory('GameService', GameService);

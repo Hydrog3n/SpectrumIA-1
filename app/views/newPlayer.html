@@ -1,0 +1,14 @@
+<div class="container" style="text-align: center;">
+    <form class="form-group" ng-submit="newplayer.create()">
+        <div class="row">
+            <label for="inputPseudo" class="">Choisir votre pseudo</label>
+            <input id="inputPseudo" type="text" class="form-control"
+                   placeholder="Votre pseudo" ng-model="newplayer.pseudo">
+        </div>
+        <div class="row">
+            <button class="btn btn-primary pull-right" style="margin-top: 2em; margin-left: 1em;" type="submit">Valider</button>
+            <button class="btn btn-danger pull-right" style="margin-top: 2em;" type="button"
+            ng-click="newplayer.cancel()">Annuler</button>
+        </div>
+    </form>
+</div>
