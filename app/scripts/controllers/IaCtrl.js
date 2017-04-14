@@ -18,6 +18,7 @@
         vm.getInfos = function () {
             GameService.infosGameState.get(function (infos) {
                 vm.draw(infos.tableau);
+                console.log(infos)
                 vm.infos = infos;
                 vm.player1 = _.find(infos.player, {numerojoueur: 1});
                 vm.player2 = _.find(infos.player, {numerojoueur: 2});
@@ -95,7 +96,7 @@
                newStamp = newDate.getTime();
                var diff = Math.round((newStamp-startStamp)/1000);
 
-               var d = Math.floor(diff/(24*60*60)); /* though I hope she won't be working for consecutive days :) */
+               var d = Math.floor(diff/(24*60*60));
                diff = diff-(d*24*60*60);
                var h = Math.floor(diff/(60*60));
                diff = diff-(h*60*60);

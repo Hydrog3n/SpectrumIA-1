@@ -54,6 +54,6 @@ angular
         $rootScope._ = window._;
     })
     .config(function (ConfigProvider) {
-        ConfigProvider.useConfig('http://spectrum.loicvaille.ovh');
+        ConfigProvider.useConfig('https://spectrum.loicvaille.ovh');
     });
 
