@@ -75,21 +75,6 @@
                 }
             }
         };
-        $('#canvas').click(function(e) {
-            var x = e.offsetX,
-                y = e.offsetY;
-
-            console.log(x)
-            console.log(y)
-            /*for(var i=0;i<vm.tableau.length;i++) { // check whether:
-                if(x > vm.tableau[i][5]            // mouse x between x and x + width
-                    && x < vm.tableau[i][5] + vm.tableau[i][5]
-                    && y > vm.tableau[i][5]            // mouse y between y and y + height
-                    && y < vm.tableau[i][5] + vm.tableau[i][5]) {
-                    alert('Rectangle ' + i + ' clicked');
-                }
-            }*/
-        });
 
        var counterGame = function () {
            var startDateTime = new Date(vm.partie.infos.startat);

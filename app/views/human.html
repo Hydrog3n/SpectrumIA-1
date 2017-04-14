@@ -1,14 +1,42 @@
 <div class="container" ng-init="human.draw()">
     <div class="col-sm-3">
-
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">NOM JOUEUR HUMAIN</h3>
+                <h5 ng-show="" style="color: red;">Est en train de jouer</h5>
+            </div>
+            <div class="panel-body">
+                <p>Pions blancs</p>
+                <label>Nombre de tenailles: </label><p></p>
+            </div>
+        </div>
     </div>
     <div class="col-sm-6">
-        <div class="row">
-            <canvas width="400" height="400" style="width: 100%;" id="canvasHuman">
-            </canvas>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <canvas width="275" height="280" style="width: 100%;" id="canvasHuman">
+                </canvas>
+            </div>
+            <div class="panel-footer" style="text-align: center;">
+                <label>Temps écoulé tour:</label>  <p></p>
+                <label>Temps écoulé partie: </label><p> minute(s), seconde(s)</p>
+                <label>Dernier coup joué:</label>
+                <p> X : {{ ia.infos.derniercoupx }} - Y : {{ ia.infos.derniercoupy }}</p>
+            </div>
         </div>
     </div>
     <div class="col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">NOM IA</h3>
+                <h5 ng-show="" style="color: red;">Est en train de jouer</h5>
+            </div>
+            <div class="panel-body">
+                <p>Pions noirs</p>
+                <label>Nombre de tenailles: </label><p></p>
+            </div>
+        </div>
         <div class="row">
             <a ng-href="/" class="btn btn-default pull-right" style="margin-top: 0.5em;">Retour</a>
         </div>

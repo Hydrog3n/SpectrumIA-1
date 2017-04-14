@@ -1,5 +1,7 @@
 <div class="container" style="text-align: center;">
     <form class="form-group" ng-submit="newplayer.create()">
+        <div ng-show="newplayer.creationError" class="alert alert-danger" role="alert">Une erreur est survenue, veuillez rééssayer</div>
+
         <div class="row">
             <label for="inputPseudo" class="">Choisir votre pseudo</label>
             <input id="inputPseudo" type="text" class="form-control"

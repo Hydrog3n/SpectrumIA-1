@@ -12,14 +12,14 @@
         const vm = this;
 
         vm.pseudo = "";
+        vm.creationError = false;
 
         vm.create = function () {
-            console.log(vm.pseudo)
             localStorageService.set('NewPlayerInfos', {pseudo: vm.pseudo});
             GameService.createNewPlayer.get(function () {
-                console.log('joueur créé')
+                $location.path('/human');
             }, function (err) {
-                console.log(err)
+                vm.creationError = true;
             });
         };
 
