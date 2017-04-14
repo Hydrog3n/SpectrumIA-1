@@ -29,7 +29,7 @@
         vm.launchTimer = function () {
             setInterval(function () {
                 vm.getInfos();
-            }, 3000);
+            }, 200);
         };
 
         //Construction du plateau de jeu
@@ -108,7 +108,7 @@
                vm.secondsGame = s;
            }
 
-           setInterval(updateClock, 1000);
+           setInterval(updateClock, 500);
        };
 
         /**

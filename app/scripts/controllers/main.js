@@ -25,22 +25,18 @@
             var partieChoisie = _.find(vm.nomsParties, {name: vm.partieSelected});
             localStorageService.set('PartieCourante', partieChoisie);
 
-            if(partieChoisie.infos.numtour == 0){
-                $timeout(function () {
-                    //StartGame
-                    GameService.startGame.get(function (resp) {
-                        if(resp.msg == "game started"){
-                            $location.path('/ia');
-                        }
-                    }, function () {
-                        vm.startError = true;
-                        $timeout(function () {
-                            $location.path('/ia');
-                            vm.startError = false;
-                        }, 2000);
-                    });
-                },2000);
-            }else{
+            if (partieChoisie.infos.numtour == 0) {
+                //StartGame
+                GameService.startGame.get().$promise.then(function (resp) {
+                    if(resp.msg == "game started"){
+                        $location.path('/ia');
+                        vm.startError = false;
+                    }
+                }).catch(function (resp) {
+                    vm.startError = true;
+                    vm.sendIA();
+                });
+            } else{
                 $location.path('/ia');
             }
         };
