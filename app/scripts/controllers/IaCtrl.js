@@ -13,15 +13,20 @@
 
         vm.player1 = {};
         vm.player2 = {};
+        vm.hadWinner = false;
 
         //Récupère les infos de la partie
         vm.getInfos = function () {
             GameService.infosGameState.get(function (infos) {
                 vm.draw(infos.tableau);
-                console.log(infos)
                 vm.infos = infos;
                 vm.player1 = _.find(infos.player, {numerojoueur: 1});
                 vm.player2 = _.find(infos.player, {numerojoueur: 2});
+
+
+                if(infos.detailfinpartie != ""){
+                    vm.hadWinner = true;
+                }
             });
         };
 
@@ -107,7 +112,6 @@
                vm.minutesGame = m;
                vm.secondsGame = s;
            }
-
            setInterval(updateClock, 500);
        };
 

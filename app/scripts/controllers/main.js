@@ -8,7 +8,7 @@
 (function () {
     'use strict';
 
-    function MainCtrl ($location, GameService, localStorageService, $timeout) {
+    function MainCtrl ($location, GameService, localStorageService, $route) {
         const vm = this;
 
         vm.partiesDispo = [];
@@ -32,7 +32,7 @@
                         $location.path('/ia');
                         vm.startError = false;
                     }
-                }).catch(function (resp) {
+                }).catch(function (err) {
                     vm.startError = true;
                     vm.sendIA();
                 });
