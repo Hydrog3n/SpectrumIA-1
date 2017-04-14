@@ -31,13 +31,16 @@
                     if(resp.msg == "game started"){
                         $location.path('/ia');
                         vm.startError = false;
+                    } else if (resp.msg == "already in game") {
+                        $location.path('/ia');
+                        vm.startError = false;
                     }
                 }).catch(function (err) {
                     vm.startError = true;
                     vm.sendIA();
                 });
-            } else{
-                $location.path('/ia');
+            } else {
+                
             }
         };
 
